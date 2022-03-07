@@ -16,13 +16,11 @@ export class UniversidadecService {
 
   getBuscarUniversidad(pais: string)  {
     this.urlService = environment.urlService + environment.urlBuscarUniversidad + "?keyvalues=" + pais;
-    console.log(this.urlService);
     return this.http.get<universidades[]>(this.urlService);
   }
 
   getUniversidad()  {
     this.urlService = environment.urlService + environment.urlUniversidad;
-    console.log(this.urlService);
     return this.http.get<universidades[]>(this.urlService);
   }
 

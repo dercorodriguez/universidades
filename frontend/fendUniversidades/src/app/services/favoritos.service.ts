@@ -15,7 +15,6 @@ export class FavoritosService {
 
   getBuscarFavorito(pais: string)  {
     this.urlService = environment.urlService + environment.urlBuscarFavorito + "?keyvalues=" + pais;
-    console.log(this.urlService);
     return this.http.get<favoritos[]>(this.urlService);
   }
 
@@ -29,9 +28,7 @@ export class FavoritosService {
     return this.http.get<favoritos>(this.urlService);
   } 
   postFavoritos(favor: favoritos) {
-    console.log('entre', favor);
     this.urlService = environment.urlService + environment.urlFavoritos;
-    console.log('entrex', this.urlService);
     return this.http.post<favoritos>(this.urlService, favor);
   }
 

@@ -21,7 +21,6 @@ export class ConsultarUniversidadComponent implements OnInit {
     this.universidadesService.getUniversidad()
       .subscribe(resultado => {
         this.iuniversidades = resultado;
-        console.log("universidad", resultado);
       });
   }
 
@@ -44,7 +43,6 @@ export class ConsultarUniversidadComponent implements OnInit {
     this.universidadesService.getBuscarUniversidad(pais)
       .subscribe(resultado => {
         this.iuniversidades = resultado;
-        console.log("universidad", resultado);
       });
   }
 }

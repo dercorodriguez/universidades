@@ -73,9 +73,7 @@ export class AgregaruniversidadComponent implements OnInit {
   }
 
   onGrabar() {
-    console.log("grabando");
     if ( this.formUniversidad.invalid ) {
-      console.log("formulario invalido");
       return;
     }
 
@@ -89,18 +87,14 @@ export class AgregaruniversidadComponent implements OnInit {
     }
 
     if (this.isnuevo) {
-      console.log("entre 1");
       this.iUniversrv.postUniversidad(this.iuniversidad)
       .subscribe(resultado => {
-        console.log('resultado', resultado);
         this.oroute.navigate(['/consUniv']);
       });
     }
     else {
-      console.log("entre 2");
       this.iUniversrv.putUniversidad(this.idUniversidad, this.iuniversidad)
       .subscribe(resultado => {
-        console.log('resultado', resultado);
         // Posteo de información
         this.formUniversidad.reset({
           nombre: '',

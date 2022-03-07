@@ -66,7 +66,6 @@ export class AgregarFavoritoComponent implements OnInit {
       .subscribe(
         res => {
           this.retorno = res;
-          console.log('upload', res);
         },
         err => console.log('zzzz', err)
       );    
@@ -112,9 +111,7 @@ export class AgregarFavoritoComponent implements OnInit {
   }
 
   async onGrabar() {
-    console.log("grabando");
     if ( this.formFavoritos.invalid ) {
-      console.log("formulario invalido");
       return;
     }
     

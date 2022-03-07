@@ -62,7 +62,6 @@ export class ConsultarlabsComponent implements OnInit {
     }
 
   onAgregar(item) {
-    console.log("entre en agregar");
     this.ifavorito = {
       id: 0,
       name: item.name,
