@@ -1,0 +1,98 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>Agregar <small> Favoritos </small></h2>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <form autocomplete="off" [formGroup]="formFavoritos" (ngSubmit)="onGrabar()">
+                <div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">Nombre</label>
+                        <div class="col">
+
+                            <input class="form-control" type="text" placeholder="Nombre" formControlName="nombre" [class.is-invalid]="nombreNoValido">
+                            <small *ngIf="nombreNoValido" class="text-danger">
+                      Ingrese el nombre de la universidad
+                    </small>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mt-2">
+                        <label class="col-2 col-form-label">Country</label>
+                        <div class="col">
+                            <select class="form-select" aria-label="Default select country" formControlName="country">
+                                <option selected value="Ecuador">Ecuador</option>
+                                <option value="Colombia">Colombia</option>
+                                <option value="Peru">Peru</option>
+                              </select>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-group row mt-2">
+                    <label class="col-2 col-form-label">Web Pages</label>
+                    <div class="col">
+
+                        <input class="form-control" type="text" placeholder="web pages" formControlName="web_pages" [class.is-invalid]="web_pagesNoValido">
+                        <small *ngIf="web_pagesNoValido" class="text-danger">
+                          Ingrese su sitio web
+                  </small>
+                    </div>
+                </div>
+
+                <div class="form-group row mt-2">
+                    <label class="col-2 col-form-label">Image</label>
+                    <div class="col">
+                        <input class="form-control" type="text" placeholder="Image" formControlName="image" [class.is-invalid]="imageNoValido">
+                        <small *ngIf="imageNoValido" class="text-danger">
+                            Ingrese la URL de la imagen
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group row mt-2">
+                    <label class="col-2 col-form-label">Image Local</label>
+                    <div class="col">
+                        <input class="form-control mt-2" type="text" placeholder="" formControlName="imagelocal" readonly>
+                        <input type="file" class="d-none mt-2" (change)="onPhotoSelected($event)" #photoInput>
+                        <img [src]="photoSelected || './assets/imagen/no-image.png'" class="img-fluid classfoto" alt="No image" (click)="photoInput.click()">
+                    </div>
+                </div>
+
+                <br>
+                <div class="form-group row">
+                    <label class="col-2 col-form-label">&nbsp;</label>
+                    <div class="input-group col-md-2">
+                        <button type="submit" class="btn btn-outline-primary btn-block">
+                            Guardar
+                        </button> &nbsp;
+                        <button type="button" routerLink="/consFav" class="btn btn-outline-danger btn-block">
+                            Cancelar
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<!-- 
+<hr>
+<pre>
+  Estado del formulario: {{ formFavoritos.valid }}
+  <br>
+  Status: {{ formFavoritos.status }}
+</pre>
+
+<pre>
+
+  {{ formFavoritos.value | json }}
+
+</pre>
+-->

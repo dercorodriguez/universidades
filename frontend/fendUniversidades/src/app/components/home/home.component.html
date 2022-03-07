@@ -1,0 +1,37 @@
+<div class="container">
+    <div *ngIf="iexiste" class="row mt-2">
+        <div class="col">
+            <h2>Portada de Universidades LocalStorage</h2>
+        </div>
+    </div>
+    <div *ngIf="!iexiste" class="row mt-2">
+        <div class="col">
+            <h2>Portada de Universidad sin Favoritos Cargados (Inicial) </h2>
+        </div>
+    </div>
+    <div *ngIf="iexiste" class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col" *ngFor="let item of ifavoritos; let i = index">
+            <div class="card text-white bg-success">
+                <div class="card-header">{{ item.name }}</div>
+                <img [src]="item.imagelocal" class="card-img-top" style="height: 200px;" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ item.name }}</h5>
+                    <p class="card-text"> {{ item.country }}</p>
+                    <p class="card-text"> {{ item.web_pages }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!iexiste" class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+            <div class="card">
+                <img src="../../../assets/imagen/universidad_ups.jpg" style="height: 300px;" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Universidad Politecnica Salesiana - UPS</h5>
+                    <p class="card-text">Ecuador</p>
+                    <p class="card-text">www.ups.edu.ec</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
